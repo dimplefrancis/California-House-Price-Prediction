@@ -28,6 +28,7 @@ def remove_outliers(df, columns):
 def load_data():
     url = 'https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv'
     data = pd.read_csv(url)
+    data1 = pd.read_csv(url)
     return data
 
 # Exploratory Data Analysis
@@ -99,7 +100,7 @@ def data_preprocessing(data):
     st.write(f"Original data shape: {data.shape}")
     st.write(f"Cleaned data shape: {data_cleaned.shape}")
 
-    return data_cleaned
+    return data, data_cleaned
 
 # Model Training and Evaluation
 def model_training(data):
@@ -186,11 +187,25 @@ def main():
     if choice == "Exploratory Data Analysis":
         exploratory_data_analysis(data)
     elif choice == "Data Preprocessing":
-        processed_data = data_preprocessing(data)
-        st.write(processed_data.head())
+        actual_data, cleaned_data = data_preprocessing(data)
+        st.write(cleaned_data.head())
+        
+        st.subheader("Download Data")
+        st.download_button(
+            label="Download Actual Dataset as CSV",
+            data=actual_data.to_csv(index=False).encode('utf-8'),
+            file_name='actual_dataset.csv',
+            mime='text/csv'
+        )
+        st.download_button(
+            label="Download Cleaned Dataset as CSV",
+            data=cleaned_data.to_csv(index=False).encode('utf-8'),
+            file_name='cleaned_dataset.csv',
+            mime='text/csv'
+        )
     elif choice == "Model Training and Evaluation":
-        processed_data = data_preprocessing(data)
-        model_training(processed_data)
+        actual_data, cleaned_data = data_preprocessing(data)
+        model_training(cleaned_data)
 
 if __name__ == '__main__':
     main()
