@@ -29,7 +29,7 @@ def load_data():
     url = 'https://raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.csv'
     data = pd.read_csv(url)
     data1 = pd.read_csv(url)
-    return data
+    return data, data1
 
 # Exploratory Data Analysis
 def exploratory_data_analysis(data):
@@ -177,7 +177,7 @@ def main():
     st.title("California Housing Price Prediction")
 
     # Load Data
-    data = load_data()
+    data, data1 = load_data()
 
     # Sidebar for navigation
     st.sidebar.title("Navigation")
@@ -192,15 +192,16 @@ def main():
         
         st.subheader("Download Data")
         st.download_button(
-            label="Download Actual Dataset as CSV",
-            data=actual_data.to_csv(index=False).encode('utf-8'),
-            file_name='actual_dataset.csv',
-            mime='text/csv'
-        )
-        st.download_button(
             label="Download Cleaned Dataset as CSV",
             data=cleaned_data.to_csv(index=False).encode('utf-8'),
             file_name='cleaned_dataset.csv',
+            mime='text/csv'
+        )
+        
+        st.download_button(
+            label="Download Original Dataset as CSV",
+            data=data1.to_csv(index=False).encode('utf-8'),
+            file_name='original_dataset.csv',
             mime='text/csv'
         )
     elif choice == "Model Training and Evaluation":
