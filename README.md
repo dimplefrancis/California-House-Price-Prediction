@@ -14,6 +14,7 @@
 ![image](https://github.com/dimplefrancis/California-House-Price-Prediction/assets/55413450/75fca9e6-38a7-4ce5-b5bb-36eceea52340)
 ![image](https://github.com/dimplefrancis/California-House-Price-Prediction/assets/55413450/71384879-b0c0-4faa-a8f7-b4a4553dccbe)
 ![image](https://github.com/dimplefrancis/California-House-Price-Prediction/assets/55413450/39bb4524-fd9e-407f-8a81-f3ffcd5006f0)
+![image](https://github.com/dimplefrancis/California-House-Price-Prediction/assets/55413450/4e9d37be-3525-4797-bb0f-5949a162c008)
 
 
 
